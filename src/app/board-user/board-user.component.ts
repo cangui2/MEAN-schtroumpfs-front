@@ -15,7 +15,6 @@ export class BoardUserComponent implements OnInit {
   content?: string;
   public users: any
   public data: object | any
-  objectKeys = Object.keys;
   constructor(private userService: UserService, private http: HttpClient,private auth :AuthService ) {
   }
 
@@ -35,8 +34,8 @@ export class BoardUserComponent implements OnInit {
     this.auth.getAllListe()
       .subscribe(res => {
 
-        this.data = Object.values(res); // change 'res' to 'res.data'
-        console.log('-====>' +this.data);
+        this.data = Object.values(res); // object value
+
       }, err => {
         console.log(err);
       });
