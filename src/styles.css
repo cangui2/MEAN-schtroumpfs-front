@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+.register{
+  background-image: url("/assets/images/fondSubcrit.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.login{
+  padding: 30px;
+  text-align: center;
+}
+.inner-div {
+  display: inline-block;
+  padding: 50px;
+}
+.headerSubcript{
+  min-height: 240px;
+  text-align: center;
+}
+.container{
+  padding-top: 20px;
+}
+.profil{
+  background-color: deepskyblue;
+  border: 1px solid #696;
+  padding: 60px 0;
+  text-align: center;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: #666 0px 20px 10px;
+  -moz-box-shadow: #666 0px 20px 10px;
+  box-shadow: #666 0px 20px 10px;
+}
+body{
+  background-image: url("assets/images/fond.jpg");
+  background-size: cover;
+}
+.update{
+  background-color: blue;
+}
+.modifier{
+  background-color: crimson;
+}
+td,th{
+  background-color: deepskyblue;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

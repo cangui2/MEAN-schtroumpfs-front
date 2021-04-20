@@ -1,0 +1,123 @@
+<div class="col-md-12 fondSubcript">
+
+
+  <div class="card card-container register">
+    <div class="container headerSubcript">
+    <H1>Bienvenue sur la page Schtroumpf Sciption</H1>
+  </div>
+  <form
+    *ngIf="!isSuccessful"
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+  >
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        name="username"
+        [(ngModel)]="form.username"
+        required
+        minlength="3"
+        maxlength="20"
+        #username="ngModel"
+      />
+      <div class="alert-danger" *ngIf="username.errors && f.submitted">
+        <div *ngIf="username.errors.required">Username is required</div>
+        <div *ngIf="username.errors.minlength">
+          Username must be at least 3 characters
+        </div>
+        <div *ngIf="username.errors.maxlength">
+          Username must be at most 20 characters
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        [(ngModel)]="form.email"
+        required
+        email
+        #email="ngModel"
+      />
+      <div class="alert-danger" *ngIf="email.errors && f.submitted">
+        <div *ngIf="email.errors.required">Email is required</div>
+        <div *ngIf="email.errors.email">
+          Email must be a valid email address
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        [(ngModel)]="form.password"
+        required
+        minlength="8"
+        #password="ngModel"
+      />
+      <div class="alert-danger" *ngIf="password.errors && f.submitted">
+        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.minlength">
+          Password must be at least 8 characters
+        </div>
+      </div>
+    </div>
+    <label for="races">Qu'elle tranche d'age appartiens tu ?</label>
+    <select class="form-select" aria-label="Default select example"id="age" name="format" [(ngModel)]="form.age">
+      <option selected>Open this select menu</option>
+      <option value="1">0-18</option>
+      <option value="2">18-30</option>
+      <option value="3">30+</option>
+    </select>
+    <label for="famille">De qu'elle fammille appartiens-tu?</label>
+    <select class="form-select" aria-label="Default select example"id="famille" name="format"  [(ngModel)]="form.famille">
+      <option selected>Open this select menu</option>
+      <option value="courant (et pas ordinaire)">courant (et pas ordinaire)</option>
+      <option value="ordinaire (et pas courant)">ordinaire (et pas courant)</option>
+      <option value="moralisateur (Schtroumpf à lunettes)">moralisateur (Schtroumpf à lunettes)</option>
+      <option value="boudeur">boudeur</option>
+      <option value="chantant">chantant</option>
+      <option value="volant">volant</option>
+      <option value="étonné">étonné</option>
+      <option value="gourmant">gourmant</option>
+      <option value="gourmant">jumeaux</option>
+      <option value="gourmant">quintuplé</option>
+      <option value="gourmant">acrobate</option>
+    </select>
+    <label for="races">De qu'elle couleur es-tu?</label>
+    <select class="form-select" aria-label="Default select example"id="races" name="format" [(ngModel)]="form.races">
+      <option selected>Open this select menu</option>
+      <option value="bleu">bleu</option>
+      <option value="rouge">rouge</option>
+      <option value="vert">vert</option>
+    </select>
+    <label for="nourriture">Que mange-tu?</label>
+    <select class="form-select"  aria-label="Default select example"id="nourriture" name="format"[(ngModel)]="form.nourriture" >
+      <option selected>Open this select menu</option>
+      <option value="Champignon">Champigon</option>
+      <option value="Salade">Salade</option>
+      <option value="Fraise">Fraise</option>
+    </select>
+    <div class="form-group">
+      <button class="btn btn-primary btn-block">Sign Up</button>
+    </div>
+
+    <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+      Signup failed!<br />{{ errorMessage }}
+    </div>
+  </form>
+
+  <div class="alert alert-success" *ngIf="isSuccessful">
+    Your registration is successful!
+  </div>
+</div>
+</div>
+

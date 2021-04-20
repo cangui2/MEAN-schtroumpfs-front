@@ -1,0 +1,102 @@
+<div class="container profil" *ngIf="currentUser; else loggedOut">
+  <header class="jumbotron">
+    <h3>
+      Profile de  <strong>{{ currentUser.username }}</strong>
+    </h3>
+  </header>
+
+  <div>
+    <div *ngIf="currentUser" class="edit-form">
+      <h4>Bienvenue sur votre Board</h4>
+      <form>
+        <div class="form-group">
+          <label for="races">L'origine :</label>
+          <input
+
+            type="text"
+            class="form-control"
+            id="races"
+            [(ngModel)]="currentUser.races"
+            [disabled]="is_edit"
+            name="races"
+          />
+        </div>
+        <div class="form-group">
+          <label for="famille">La famille a qui vous appartenez </label>
+          <input
+            type="text"
+            class="form-control"
+            id="famille"
+            [(ngModel)]="currentUser.famille"
+            [disabled]="is_edit"
+            name="famille"
+          />
+        </div>
+        <div class="form-group">
+          <label for="age">Votre age est de  </label>
+          <input
+            type="text"
+            class="form-control"
+            id="age"
+            [(ngModel)]="currentUser.age"
+            [disabled]="is_edit"
+            name="age"
+          />
+        </div>
+        <div class="form-group">
+          <label for="nourriture">se que vous aimez le plus manger </label>
+          <input
+            type="text"
+            class="form-control"
+            id="nourriture"
+            [(ngModel)]="currentUser.nourriture"
+            [disabled]="is_edit"
+            name="nourriture"
+          />
+        </div>
+
+        <div class="form-group">
+          <label><strong>Status:</strong></label>
+          {{ currentUser.published ? " Merci de deconnecter pour voir les modifications" : "Pending" }}
+        </div>
+      </form>
+      <button
+        class="badge badge-primary modifier mr-2"
+        (click)="is_edit = !is_edit">Modifier</button>
+      <button
+        class="badge btn-primary mr-2"
+        *ngIf="currentUser.published"
+        (click)="updatePublished(false)"
+        (pressup)="is_edit"
+      >
+        Update
+      </button>
+      <button
+        *ngIf="!currentUser.published"
+        class="badge badge-primary update mr-2"
+        (click)="updatePublished(true)"
+      >
+        Mise a jour
+      </button>
+
+<!--      <button class="badge badge-danger mr-2" (click)="deleteTutorial()">-->
+<!--        Delete-->
+<!--      </button>-->
+
+<!--      <button-->
+<!--        type="submit"-->
+<!--        class="badge badge-success mb-2"-->
+<!--        (click)="updateTutorial()"-->
+<!--      >-->
+<!--        Update-->
+<!--      </button>-->
+<!--      <p>{{ message }}</p>-->
+    </div>
+  </div>
+  </div>
+
+
+  <ng-template #loggedOut>
+  Please login.
+</ng-template>
+
