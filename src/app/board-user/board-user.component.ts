@@ -19,26 +19,20 @@ export class BoardUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.getUserBoard().subscribe(
-      data => {
-        this.content = data;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
-    this.users = []
+  const getUsers=()=> {
+      this.auth.getAllListe()
+        .subscribe(res => {
+
+          this.data = Object.values(res); // object value
+
+        }, err => {
+          console.log(err);
+        });
+    }
+    getUsers();
+
   }
 
-  public getUsers() {
-    this.auth.getAllListe()
-      .subscribe(res => {
 
-        this.data = Object.values(res); // object value
-
-      }, err => {
-        console.log(err);
-      });
-  }
 
 }

@@ -1,7 +1,6 @@
 <div class="container">
   <header class="jumbotron">
   </header>
-  <button (click)="getUsers()">Click liste des utilisateurs du sites</button>
   <table class="table table-primary table-striped">
     <thead>
 
@@ -15,7 +14,7 @@
     </tr>
     </thead>
     <tr *ngFor="let key of data ; let i = index;">
-      <th scope="row">{{i}}</th>
+      <th scope="row"><img src="https://img.icons8.com/color/50/000000/smurf.png"/></th>
       <td>{{key.username}}</td>
       <td>{{key.age}}</td>
       <td>{{key.famille}}</td>
