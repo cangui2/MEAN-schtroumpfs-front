@@ -16,6 +16,7 @@ export class BoardUserComponent implements OnInit {
   currentUser: any;
   public users: any
   public data: object | any
+  public favorieId: any;
   constructor(private userService: UserService, private http: HttpClient,private auth :AuthService,private token: TokenStorageService ) {
   }
 
@@ -36,7 +37,15 @@ export class BoardUserComponent implements OnInit {
   }
 
 
-
+addFavorie=()=>{
+  const favorieId = this.data.id
+    // @ts-ignore
+  this.auth.updateFavorie(this.currentUser.id,favorieId)
+    .subscribe(val=>{
+      console.log(val);
+      }
+    )
+}
 
 
 

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {map} from "rxjs/operators";
+import {UserService} from "./user.service";
+import {any} from "codelyzer/util/function";
 
 
 const AUTH_API = 'http://localhost:8080/api/auth/';
@@ -51,7 +53,10 @@ export class AuthService {
     return this.http.get(`${AUTH_API}user/${id}`);
   }
 
-
+  updateFavorie(id: any, data: any,test:any): Observable<any> {
+    // @ts-ignore
+    return this.http.put(`${AUTH_API}/user/test/${id}/${data}`,{headers});
+  }
 
 }
 
