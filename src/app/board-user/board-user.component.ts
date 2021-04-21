@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from "../_services/user.service";
 import { HttpClient } from '@angular/common/http';
 import {AuthService} from "../_services/auth.service";
+import {TokenStorageService} from "../_services/token-storage.service";
 
 
 
@@ -12,13 +13,14 @@ import {AuthService} from "../_services/auth.service";
 
 })
 export class BoardUserComponent implements OnInit {
-  content?: string;
+  currentUser: any;
   public users: any
   public data: object | any
-  constructor(private userService: UserService, private http: HttpClient,private auth :AuthService ) {
+  constructor(private userService: UserService, private http: HttpClient,private auth :AuthService,private token: TokenStorageService ) {
   }
 
   ngOnInit(): void {
+    this.currentUser = this.token.getUser();
   const getUsers=()=> {
       this.auth.getAllListe()
         .subscribe(res => {
@@ -32,6 +34,12 @@ export class BoardUserComponent implements OnInit {
     getUsers();
 
   }
+
+
+
+
+
+
 
 
 
