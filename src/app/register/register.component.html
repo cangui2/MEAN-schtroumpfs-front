@@ -1,9 +1,9 @@
-<div class="col-md-12 fondSubcript">
+<div class="col-md-6 fondSubcript">
 
 
   <div class="card card-container register">
     <div class="container headerSubcript">
-    <H1>Bienvenue sur la page Schtroumpf Sciption</H1>
+    <H1>Bienvenue sur la page Schtroumpf Scription</H1>
   </div>
   <form
     *ngIf="!isSuccessful"
@@ -71,14 +71,14 @@
       </div>
     </div>
     <label for="races">Qu'elle tranche d'age appartiens tu ?</label>
-    <select class="form-select" aria-label="Default select example"id="age" name="format" [(ngModel)]="form.age">
+    <select class="form-select" aria-label="Default select example"id="age" name="format" required [(ngModel)]="form.age">
       <option selected>Open this select menu</option>
       <option value="1">0-18</option>
       <option value="2">18-30</option>
       <option value="3">30+</option>
     </select>
     <label for="famille">De qu'elle fammille appartiens-tu?</label>
-    <select class="form-select" aria-label="Default select example"id="famille" name="format"  [(ngModel)]="form.famille">
+    <select class="form-select" aria-label="Default select example"id="famille" name="format" required  [(ngModel)]="form.famille">
       <option selected>Open this select menu</option>
       <option value="courant (et pas ordinaire)">courant (et pas ordinaire)</option>
       <option value="ordinaire (et pas courant)">ordinaire (et pas courant)</option>
@@ -93,14 +93,14 @@
       <option value="gourmant">acrobate</option>
     </select>
     <label for="races">De qu'elle couleur es-tu?</label>
-    <select class="form-select" aria-label="Default select example"id="races" name="format" [(ngModel)]="form.races">
+    <select class="form-select" aria-label="Default select example"id="races" name="format" required [(ngModel)]="form.races">
       <option selected>Open this select menu</option>
       <option value="bleu">bleu</option>
       <option value="rouge">rouge</option>
       <option value="vert">vert</option>
     </select>
     <label for="nourriture">Que mange-tu?</label>
-    <select class="form-select"  aria-label="Default select example"id="nourriture" name="format"[(ngModel)]="form.nourriture" >
+    <select class="form-select"  aria-label="Default select example"id="nourriture" name="format" required [(ngModel)]="form.nourriture" >
       <option selected>Open this select menu</option>
       <option value="Champignon">Champigon</option>
       <option value="Salade">Salade</option>
@@ -116,7 +116,7 @@
   </form>
 
   <div class="alert alert-success" *ngIf="isSuccessful">
-    Your registration is successful!
+    Bienvenue dans la famille Schtroumpf !
   </div>
 </div>
 </div>

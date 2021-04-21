@@ -1,58 +1,72 @@
-<div class="container profil" *ngIf="currentUser; else loggedOut">
+<div class="container col-md-6 profil" *ngIf="currentUser; else loggedOut">
   <header class="jumbotron">
     <h3>
       Profile de <strong>{{ currentUser.username }}</strong>
     </h3>
   </header>
 
-  <div>
+<div class="row">
+  <div class="col-6">
     <div *ngIf="currentUser" class="edit-form">
       <h4>Bienvenue sur votre Board</h4>
       <form>
         <div class="form-group">
-          <label for="races">L'origine :</label>
-          <input
-
-            type="text"
-            class="form-control"
-            id="races"
-            [(ngModel)]="currentUser.races"
-            [disabled]="is_edit"
-            name="races"
-          />
+          <label for="races">La couleur :</label>
+          <select class="form-select" aria-label="Default select example"id="races" name="races" required
+                  [(ngModel)]="currentUser.races"
+                  [disabled]="is_edit">
+            <option selected>Open this select menu</option>
+            <option value="bleu">bleu</option>
+            <option value="rouge">rouge</option>
+            <option value="vert">vert</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="famille">La famille a qui vous appartenez </label>
-          <input
-            type="text"
-            class="form-control"
-            id="famille"
-            [(ngModel)]="currentUser.famille"
-            [disabled]="is_edit"
-            name="famille"
-          />
+          <select class="form-select" aria-label="Default select example"id="famille" name="famille" required
+                  [(ngModel)]="currentUser.famille"
+                  [disabled]="is_edit">
+            <option value="courant (et pas ordinaire)">courant (et pas ordinaire)</option>
+            <option value="ordinaire (et pas courant)">ordinaire (et pas courant)</option>
+            <option value="moralisateur (Schtroumpf à lunettes)">moralisateur (Schtroumpf à lunettes)</option>
+            <option value="boudeur">boudeur</option>
+            <option value="chantant">chantant</option>
+            <option value="volant">volant</option>
+            <option value="étonné">étonné</option>
+            <option value="gourmant">gourmant</option>
+            <option value="gourmant">jumeaux</option>
+            <option value="gourmant">quintuplé</option>
+            <option value="gourmant">acrobate</option>
+          </select>
+<!--          <input-->
+<!--            type="text"-->
+<!--            class="form-control"-->
+<!--            [(ngModel)]="currentUser.famille"-->
+<!--            [disabled]="is_edit"-->
+<!--            name="famille"-->
+<!--          />-->
         </div>
         <div class="form-group">
           <label for="age">Votre age est de </label>
-          <input
-            type="text"
-            class="form-control"
-            id="age"
-            [(ngModel)]="currentUser.age"
-            [disabled]="is_edit"
-            name="age"
-          />
+          <select class="form-select" aria-label="Default select example"id="age" name="age" required
+                  [(ngModel)]="currentUser.age"
+                  [disabled]="is_edit">
+            <option selected>Open this select menu</option>
+            <option value="1">0-18</option>
+            <option value="2">18-30</option>
+            <option value="3">30+</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="nourriture">se que vous aimez le plus manger </label>
-          <input
-            type="text"
-            class="form-control"
-            id="nourriture"
-            [(ngModel)]="currentUser.nourriture"
-            [disabled]="is_edit"
-            name="nourriture"
-          />
+          <select class="form-select"  aria-label="Default select example"id="nourriture" name="nourriture" required
+                  [(ngModel)]="currentUser.nourriture"
+                  [disabled]="is_edit" >
+            <option selected>Open this select menu</option>
+            <option value="Champignon">Champigon</option>
+            <option value="Salade">Salade</option>
+            <option value="Fraise">Fraise</option>
+          </select>
         </div>
 
         <div class="form-group">
@@ -81,6 +95,10 @@
       </button>
     </div>
   </div>
+  <div class="col-6">
+    <img class="avatar" src="assets/images/img.png">
+  </div>
+</div>
 </div>
 
 
