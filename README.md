@@ -3,7 +3,7 @@
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> Front avec Angular 11. Login et inscription fonctionnelle,liste des inscrits,modification du profils fonctionnelle mais probleme d'implantation du refresh token , et manque de temps pour ajout des favoris.
+> Front avec Angular 11. Login et inscription fonctionnelle,liste des inscrits,modification du profils fonctionnelle , manque de temps pour ajout des favoris.
 
 ## Install
 

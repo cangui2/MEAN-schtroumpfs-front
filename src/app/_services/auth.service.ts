@@ -47,6 +47,9 @@ export class AuthService {
       ))
 
   };
+  getUserById(id:any) {
+    return this.http.get(`${AUTH_API}user/${id}`);
+  }
 
 
 }

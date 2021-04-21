@@ -7,15 +7,14 @@
 
 <div class="row">
   <div class="col-6">
-    <div *ngIf="currentUser" class="edit-form">
+    <div *ngIf="user" class="edit-form">
       <h4>Bienvenue sur votre Board</h4>
       <form>
         <div class="form-group">
           <label for="races">La couleur :</label>
           <select class="form-select" aria-label="Default select example"id="races" name="races" required
-                  [(ngModel)]="currentUser.races"
+                  [(ngModel)]="user.races"
                   [disabled]="is_edit">
-            <option selected>Open this select menu</option>
             <option value="bleu">bleu</option>
             <option value="rouge">rouge</option>
             <option value="vert">vert</option>
@@ -24,7 +23,7 @@
         <div class="form-group">
           <label for="famille">La famille a qui vous appartenez </label>
           <select class="form-select" aria-label="Default select example"id="famille" name="famille" required
-                  [(ngModel)]="currentUser.famille"
+                  [(ngModel)]="user.famille"
                   [disabled]="is_edit">
             <option value="courant (et pas ordinaire)">courant (et pas ordinaire)</option>
             <option value="ordinaire (et pas courant)">ordinaire (et pas courant)</option>
@@ -34,24 +33,16 @@
             <option value="volant">volant</option>
             <option value="étonné">étonné</option>
             <option value="gourmant">gourmant</option>
-            <option value="gourmant">jumeaux</option>
-            <option value="gourmant">quintuplé</option>
-            <option value="gourmant">acrobate</option>
+            <option value="jumeaux">jumeaux</option>
+            <option value="quintuplé">quintuplé</option>
+            <option value="acrobate">acrobate</option>
           </select>
-<!--          <input-->
-<!--            type="text"-->
-<!--            class="form-control"-->
-<!--            [(ngModel)]="currentUser.famille"-->
-<!--            [disabled]="is_edit"-->
-<!--            name="famille"-->
-<!--          />-->
         </div>
         <div class="form-group">
           <label for="age">Votre age est de </label>
           <select class="form-select" aria-label="Default select example"id="age" name="age" required
-                  [(ngModel)]="currentUser.age"
+                  [(ngModel)]="user.age"
                   [disabled]="is_edit">
-            <option selected>Open this select menu</option>
             <option value="1">0-18</option>
             <option value="2">18-30</option>
             <option value="3">30+</option>
@@ -60,9 +51,8 @@
         <div class="form-group">
           <label for="nourriture">se que vous aimez le plus manger </label>
           <select class="form-select"  aria-label="Default select example"id="nourriture" name="nourriture" required
-                  [(ngModel)]="currentUser.nourriture"
+                  [(ngModel)]="user.nourriture"
                   [disabled]="is_edit" >
-            <option selected>Open this select menu</option>
             <option value="Champignon">Champigon</option>
             <option value="Salade">Salade</option>
             <option value="Fraise">Fraise</option>
@@ -71,7 +61,7 @@
 
         <div class="form-group">
           <label><strong>Status:</strong></label>
-          {{ currentUser.published ? " Merci de deconnecter pour voir les modifications" : "Pending" }}
+          {{ user.published ? " Votre profils a étais mis a jour" : "Pending" }}
         </div>
       </form>
       <button
@@ -80,14 +70,14 @@
       </button>
       <button
         class="badge btn-primary mr-2"
-        *ngIf="currentUser.published"
+        *ngIf="user.published"
         (click)="updatePublished(false)"
         (pressup)="is_edit"
       >
-        Update
+        Update ok
       </button>
       <button
-        *ngIf="!currentUser.published"
+        *ngIf="!user.published"
         class="badge badge-primary update mr-2"
         (click)="updatePublished(true)"
       >
