@@ -1,16 +1,17 @@
 <div class="container">
   <header class="jumbotron">
   </header>
-  <table class="table table-primary table-striped">
+  <table class="table">
     <thead>
 
-    <tr>
+    <tr class="table-primary">
       <th scope="col">#</th>
       <th scope="col">Speudo</th>
       <th scope="col">Age</th>
       <th scope="col">Type Famille</th>
       <th scope="col">Ethnie</th>
-      <th scope="col">Favorie</th>
+      <th scope="col">Ajout d'amis</th>
+      <th scope="col">Amis</th>
     </tr>
     </thead>
     <tr *ngFor="let key of data ; let i = index;">
@@ -20,14 +21,29 @@
       <td>{{key.famille}}</td>
       <td>{{key.races}}</td>
       <td>
-        <button type="button" class="btn btn-outline-warning">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill"
-               viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-          </svg>
+        <button type="button" class="btn btn-outline-primary" (click)="addFavorie(key._id)">
+          Ajouter
         </button>
+        <button type="button" class="btn btn-outline-danger" (click)="removeFavorie(key._id)">
+          Supprimer
+        </button>
+        </td>
+      <td>
+          <div *ngIf="checkUser(key._id); else notSelected">
+            <button type="button" class="btn btn-outline-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill"
+                 viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+            </svg>
+            </button>
+          </div>
+          <ng-template #notSelected>
+
+          </ng-template>
+
       </td>
     </tr>
+
   </table>
 
 </div>

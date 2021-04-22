@@ -53,10 +53,13 @@ export class AuthService {
     return this.http.get(`${AUTH_API}user/${id}`);
   }
 
-  updateFavorie(id: any, data: any,test:any): Observable<any> {
-    // @ts-ignore
-    return this.http.put(`${AUTH_API}/user/test/${id}/${data}`,{headers});
+  updateFavorie(id: any, data: any): Observable<any> {
+    return this.http.put(`${AUTH_API}user/test/${id}/${data}`,data);
   }
+  removeFavorie(id: any, data: any): Observable<any> {
+    return this.http.put(`${AUTH_API}user/test2/${id}/${data}`,data);
+  }
+
 
 }
 

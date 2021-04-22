@@ -17,6 +17,8 @@ export class BoardUserComponent implements OnInit {
   public users: any
   public data: object | any
   public favorieId: any;
+  public fav:any;
+
   constructor(private userService: UserService, private http: HttpClient,private auth :AuthService,private token: TokenStorageService ) {
   }
 
@@ -33,21 +35,50 @@ export class BoardUserComponent implements OnInit {
         });
     }
     getUsers();
+    const findByUser = () => {
+      this.auth.getUserById(this.currentUser.id)
 
+        .subscribe(
+          (resp) => {
+            console.log("on est dedant");
+            this.users = resp;
+            console.log(resp);
+            console.log(this.users.favorie);
+            this.fav=this.users.favorie
+          }
+        )
+    }
+    findByUser();
   }
 
 
-addFavorie=()=>{
-  const favorieId = this.data.id
-    // @ts-ignore
+addFavorie(favorieId:any){
+
   this.auth.updateFavorie(this.currentUser.id,favorieId)
     .subscribe(val=>{
       console.log(val);
       }
     )
+  this.reloadPage()
+
 }
+  removeFavorie(favorieId:any){
 
-
+    this.auth.removeFavorie(this.currentUser.id,favorieId)
+      .subscribe(val=>{
+          console.log(val);
+        }
+      )
+    this.reloadPage()
+  }
+  checkUser(id:any){
+    return this.fav.indexOf(id) > -1;
+  }
+  reloadPage() {
+    setTimeout(()=>{
+      window.location.reload();
+    }, 100);
+  }
 
 
 
