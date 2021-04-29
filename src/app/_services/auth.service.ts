@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {map} from "rxjs/operators";
-import {UserService} from "./user.service";
-import {any} from "codelyzer/util/function";
+import {map} from 'rxjs/operators';
+import {UserService} from './user.service';
+import {any} from 'codelyzer/util/function';
 
 
-const AUTH_API = 'http://localhost:8080/api/auth/';
-const baseUrl = 'http://localhost:8080/api/auth/update';
+const AUTH_API = 'http://node.canguidev.site/node/api/auth/';
+const baseUrl = 'http://node.canguidev.site/node/api/auth/update';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -46,18 +46,18 @@ export class AuthService {
     return this.http.get(AUTH_API + 'alluser')
       .pipe(map((data: any) => data || []
 
-      ))
+      ));
 
-  };
-  getUserById(id:any) {
+  }
+  getUserById(id: any) {
     return this.http.get(`${AUTH_API}user/${id}`);
   }
 
   updateFavorie(id: any, data: any): Observable<any> {
-    return this.http.put(`${AUTH_API}user/test/${id}/${data}`,data);
+    return this.http.put(`${AUTH_API}user/test/${id}/${data}`, data);
   }
   removeFavorie(id: any, data: any): Observable<any> {
-    return this.http.put(`${AUTH_API}user/test2/${id}/${data}`,data);
+    return this.http.put(`${AUTH_API}user/test2/${id}/${data}`, data);
   }
 
 
