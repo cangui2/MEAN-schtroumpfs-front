@@ -6,8 +6,8 @@ import {UserService} from './user.service';
 import {any} from 'codelyzer/util/function';
 
 
-const AUTH_API = 'https://node.canguidev.site/node/api/auth/';
-const baseUrl = 'https://node.canguidev.site/node/api/auth/update';
+const AUTH_API = 'http://node.canguidev.site/node/api/auth/';
+const baseUrl = 'http://node.canguidev.site/node/api/auth/update';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
